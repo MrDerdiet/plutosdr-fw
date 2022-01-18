@@ -27,7 +27,7 @@ UBOOT_VERSION=$(shell echo -n "PlutoSDR " && cd u-boot-xlnx && git describe --ab
 HAVE_VIVADO= $(shell bash -c "source $(VIVADO_SETTINGS) > /dev/null 2>&1 && vivado -version > /dev/null 2>&1 && echo 1 || echo 0")
 
 ifeq (1, ${HAVE_VIVADO})
-	VIVADO_INSTALL= $(shell bash -c "source $(VIVADO_SETTINGS) > /dev/null 2>&1 && vivado -version | head -1 | awk '{print $2}'")
+VIVADO_INSTALL= $(shell bash -c "source $(VIVADO_SETTINGS) > /dev/null 2>&1 && vivado -version | head -1 | awk '{print $2}'")
 	ifeq (, $(findstring $(VIVADO_VERSION), $(VIVADO_INSTALL)))
 $(warning *** This repository has only been tested with $(VIVADO_VERSION),)
 $(warning *** and you have $(VIVADO_INSTALL))
